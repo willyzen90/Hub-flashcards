@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub de Aprendizaje Espaciado & Idiomas</title>
+  <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+      <h2>Mnemotic Hub</h2>
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="dashboard">📊 Progreso & Niveles</button>
+        <button class="nav-item" data-tab="decks">🗂️ Gestión de Mazos</button>
+        <button class="nav-item" data-tab="stories">📖 Generador de Historias</button>
+      </nav>
+      <div class="sync-box">
+        <button id="sync-btn" class="btn-sync">🔄 Sincronizar Extensión</button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      
+      <!-- SECCIÓN 1: DASHBOARD Y BARRAS DE PROGRESO -->
+      <section id="dashboard" class="tab-content active">
+        <h1>Progreso por Niveles</h1>
+
+        <!-- PROGRESO INGLÉS (CEFR) -->
+        <div class="lang-section">
+          <h3>🇬🇧 Inglés — Marco Común Europeo (CEFR)</h3>
+          <div class="level-bars-grid" id="english-levels-container">
+            <!-- Se genera dinámicamente con JS -->
+          </div>
+        </div>
+
+        <!-- PROGRESO CHINO (HSK 3.0) -->
+        <div class="lang-section">
+          <h3>🇨🇳 Chino Mandarín — Estándar HSK 3.0</h3>
+          <div class="level-bars-grid" id="chinese-levels-container">
+            <!-- Se genera dinámicamente con JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: GESTIÓN AVANZADA DE MAZOS -->
+      <section id="decks" class="tab-content">
+        <h1>Gestión de Mazos y Clasificación</h1>
+        <div class="filter-bar">
+          <select id="filter-lang">
+            <option value="ALL">Todos los Idiomas</option>
+            <option value="INGLÉS">Inglés</option>
+            <option value="CHINO">Chino</option>
+          </select>
+          <select id="filter-level">
+            <option value="ALL">Todos los Niveles</option>
+          </select>
+        </div>
+        <div class="cards-grid" id="cards-manager-grid">
+          <!-- Tarjetas listadas aquí -->
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: GENERADOR DE HISTORIAS CON VOCABULARIO -->
+      <section id="stories" class="tab-content">
+        <h1>Generación de Historias Contextuales</h1>
+        <p>Selecciona tarjetas de tu mazo para tejer una historia narrativa que refuerce el aprendizaje en contexto.</p>
+        
+        <div class="story-controls">
+          <label for="story-deck-select">Mazo objetivo:</label>
+          <select id="story-deck-select">
+            <option value="CHINO">Mazo Chino</option>
+            <option value="INGLÉS">Mazo Inglés</option>
+          </select>
+          <button id="generate-story-btn" class="btn-primary">✨ Generar Historia</button>
+        </div>
+
+        <div class="story-display">
+          <div class="story-text" id="story-output">
+            Selecciona un mazo y haz clic en "Generar Historia" para construir una lectura de práctica con tu vocabulario guardado.
+          </div>
+          <div class="used-words-box">
+            <h4>Vocabulario Incluido:</h4>
+            <ul id="story-words-list"></ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="hub.js"></script>
+</body>
+</html>
